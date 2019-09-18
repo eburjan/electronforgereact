@@ -1,0 +1,67 @@
+
+js elektron
+
+https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c
+https://itnext.io/create-desktop-with-electron-react-and-c-86f9765809b7
+
+- avoid ejecting the React app
+- minimize glue to get React and Electron working together
+- preserve the defaults, assumptions and conventions made by Electron and create-react-app/React. 
+
+Basic Recipe
+
+1. run create-react-app to generate a basic React application
+2. run npm install --save-dev electron
+3. add main.js from electron-quick-start (rename it to electron-starter.js)
+4. modify call to mainWindow.loadURL (in electron-starter.js) to use localhost:3000 (webpack-dev-server)
+		const path = require('path');
+		const url = require('url');
+		
+		mainWindow.loadURL('http://localhost:3000');
+5. add/replace 'main' entry to package.json for electron-starter.js
+6. add a run target to start Electron to package.json
+7. execute cmd: 'npm start' + 'npm run electron'
+8. add "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron .",  to JSON
+9. add this to loadURL:
+	const startUrl = process.env.ELECTRON_START_URL || url.format({
+				pathname: path.join(__dirname, '/../build/index.html'),
+				protocol: 'file:',
+				slashes: true
+			});
+DOC: https://facebook.github.io/create-react-app/docs/deployment
+10. add to JSON : "homepage": "./",
+11. Using Foreman to Manage React and Electron Processes
+	npm install --save-dev foreman
+11.1. Add Procfile
+	react: npm start
+	electron: node src/electron-wait-react
+12. Accessing Electron from the React App
+	const electron = window.require('electron');
+	const fs = electron.remote.require('fs');
+	const ipcRenderer  = electron.ipcRenderer;
+	
+------------------------- ELECTRON_FORGE --------------
+
+https://www.youtube.com/watch?v=zq-XcnjLpXI
+[0] https://github.com/facebook/create-react-app/issues/3074 
+[1] https://electronforge.io/ 
+[2] https://electronforge.io/templates 
+[3] https://github.com/electron-react-boilerplate/electron-react-boilerplate 
+[4] https://github.com/electron-userland/electron-compile﻿
+
+https://www.npmjs.com/package/electron-react-webpack-boilerplate
+
+npm install -g electron-forge
+https://electronforge.io/templates
+
+npm install -g electron-forge
+electron-forge init my-new-project --template=react
+cd my-new-project
+electron-forge start
+
+INSTALL PACKAGE:
+electron-forge make
+
+aws - amazon web services
+
+https://electronforge.io/cli/make

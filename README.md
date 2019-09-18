@@ -1,2 +1,4 @@
 # electronforgereact
-React desktop app with Electron Forge
+Desktop app: a React app embedded in Electron Forge
+
+

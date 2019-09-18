@@ -1,0 +1,20 @@
+
+USER GUIDE
+
+ELVÁRÁSOK A FELHASZNÁLÓTÓL
+> a kodokat egységesen kell használni: SB.20.2500.1000.00 formában
+> az FSB.xlsx és SB.xlsx táblázatokban a munkalap neve mindég 'Munka1'
+> a Projekt.xlsx táblázatban a munkalap neve mindég 'Matten'
+> cellaformázás általános vagy szöveg
+> az utólag hozzáadott oszlopokoat nem fogja tudni olvasni (igény szerint tudom bovíteni)
+> a Project.xlsx adatai a 4-ik sortól kezdodjenek 
+> az FSB.xlsx és SB.xlsx táblázatokban az árak átírhatók
+
+HOGY MUKÖDIK
+> betölteni: FSB.xlsx, SB.xlsx, Projekt.xlsx
+> új árlistát generál a Projekt.xlsx mintájára, kiegészített áras oszlopokkal
+> az eredményt a Project.xlsx fájllal azonos mappába menti
+
+Amennyiben a felhasználó nem tartja be az "ELVÁRÁSOK A FELHASZNÁLÓTÓL"-ban leírtakat, a program futás helyett hibaüzenetet ad.
+
+
